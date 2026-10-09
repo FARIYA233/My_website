@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Books | BookNest+</title>
+  <meta name="description" content="Explore books across different categories at BookNest+.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a href="index.html#home" class="logo">
+        <span class="logo-icon">B+</span>
+        <span>BookNest<span class="logo-plus">+</span></span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#categories" class="nav-link">Categories</a>
+        <a href="books.html" class="nav-link active">All Books</a>
+        <a href="index.html#about" class="nav-link">About</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="index.html#featured" class="wishlist-link">♡ <span>Favourites</span></a>
+        <a href="login.html" class="btn btn-outline">Login</a>
+        <a href="signup.html" class="btn btn-primary">Join Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container" style="padding-top:65px;padding-bottom:65px;">
+        <span class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
+        <h1 style="margin-top:16px;">Explore Our <span>Library.</span></h1>
+        <p style="max-width:600px;margin-top:18px;">
+          Discover inspiring ideas, unforgettable characters, real-life stories,
+          and mysteries waiting to be solved.
+        </p>
+        <div style="margin-top:25px;">
+          <a href="#allBooks" class="btn btn-primary btn-large">Browse All Books ↓</a>
+          <a href="index.html" class="btn btn-outline">Back to Home</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section featured-section" id="allBooks">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">THE BOOKNEST+ COLLECTION</span>
+            <h2>All Books</h2>
+            <p>Search the collection or select a category.</p>
+          </div>
+        </div>
+
+        <div class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input type="search" id="bookSearch"
+            placeholder="Search by book title..."
+            aria-label="Search books">
+        </div>
+
+        <div class="filter-buttons" aria-label="Filter books by category">
+          <button class="filter-btn selected" data-filter="All">All Books</button>
+          <button class="filter-btn" data-filter="Adventure">Adventure</button>
+          <button class="filter-btn" data-filter="Education">Education</button>
+          <button class="filter-btn" data-filter="Fiction">Fiction</button>
+          <button class="filter-btn" data-filter="Biography">Biography</button>
+          <button class="filter-btn" data-filter="Mystery">Mystery</button>
+        </div>
+
+        <div class="book-grid" id="bookGrid">
+          <article class="book-card" data-category="Adventure" data-title="the alchemist">
+            <div class="book-cover">
+              <img src="https://covers.openlibrary.org/b/isbn/9780062315007-L.jpg" alt="The Alchemist cover" loading="lazy">
+              <button class="heart-btn" aria-label="Add The Alchemist to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="book-info">
+              <span class="book-category">ADVENTURE</span>
+              <h3>The Alchemist</h3>
+              <p class="book-author">Paulo Coelho</p>
+              <div class="book-bottom">
+                <span class="rating">★ 4.7</span>
+                <button class="details-btn" data-title="The Alchemist" data-author="Paulo Coelho" data-description="A young shepherd travels in search of treasure and learns about dreams, courage, and self-discovery.">View Details ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="book-card" data-category="Education" data-title="atomic habits">
+            <div class="book-cover">
+              <img src="https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg" alt="Atomic Habits cover" loading="lazy">
+              <button class="heart-btn" aria-label="Add Atomic Habits to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="book-info">
+              <span class="book-category">EDUCATION</span>
+              <h3>Atomic Habits</h3>
+              <p class="book-author">James Clear</p>
+              <div class="book-bottom">
+                <span class="rating">★ 4.8</span>
+                <button class="details-btn" data-title="Atomic Habits" data-author="James Clear" data-description="A practical guide to building better habits through small, consistent daily improvements.">View Details ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="book-card" data-category="Fiction" data-title="pride and prejudice">
+            <div class="book-cover">
+              <img src="https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg" alt="Pride and Prejudice cover" loading="lazy">
+              <button class="heart-btn" aria-label="Add Pride and Prejudice to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="book-info">
+              <span class="book-category">FICTION</span>
+              <h3>Pride and Prejudice</h3>
+              <p class="book-author">Jane Austen</p>
+              <div class="book-bottom">
+                <span class="rating">★ 4.6</span>
+                <button class="details-btn" data-title="Pride and Prejudice" data-author="Jane Austen" data-description="A classic novel about love, family, first impressions, and social expectations.">View Details ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="book-card" data-category="Biography" data-title="long walk to freedom">
+            <div class="book-cover">
+              <img src="https://covers.openlibrary.org/b/isbn/9780316548182-L.jpg" alt="Long Walk to Freedom cover" loading="lazy">
+              <button class="heart-btn" aria-label="Add Long Walk to Freedom to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="book-info">
+              <span class="book-category">BIOGRAPHY</span>
+              <h3>Long Walk to Freedom</h3>
+              <p class="book-author">Nelson Mandela</p>
+              <div class="book-bottom">
+                <span class="rating">★ 4.8</span>
+                <button class="details-btn" data-title="Long Walk to Freedom" data-author="Nelson Mandela" data-description="An autobiography recounting Mandela's life and his struggle against apartheid.">View Details ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="book-card" data-category="Mystery" data-title="and then there were none">
+            <div class="book-cover">
+              <img src="https://covers.openlibrary.org/b/isbn/9780062073488-L.jpg" alt="And Then There Were None cover" loading="lazy">
+              <button class="heart-btn" aria-label="Add And Then There Were None to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="book-info">
+              <span class="book-category">MYSTERY</span>
+              <h3>And Then There Were None</h3>
+              <p class="book-author">Agatha Christie</p>
+              <div class="book-bottom">
+                <span class="rating">★ 4.7</span>
+                <button class="details-btn" data-title="And Then There Were None" data-author="Agatha Christie" data-description="Ten strangers gather on an isolated island in a tense and mysterious detective story.">View Details ↗</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="empty-message" id="emptyMessage" hidden>
+          No matching books found. Try another search.
+        </p>
+
+        <div class="center-action">
+          <a href="index.html" class="btn btn-outline">← Return to Home Page</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="community-section">
+      <div class="container community-inner">
+        <div>
+          <span class="section-kicker light-kicker">JOIN THE COMMUNITY</span>
+          <h2>Find your next favourite.</h2>
+          <p>Make reading part of your everyday life with BookNest+.</p>
+        </div>
+        <a href="signup.html" class="btn btn-light">Join BookNest+ →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="about">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-icon">B+</span>
+            <span>BookNest<span class="logo-plus">+</span></span>
+          </a>
+          <p>A community-based reading platform for curious minds and passionate readers.</p>
+          <span class="footer-tagline">Read. Explore. Grow.</span>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="index.html#categories">Categories</a>
+          <a href="books.html">All Books</a>
+        </div>
+        <div class="footer-column">
+          <h3>Account</h3>
+          <a href="login.html">Login</a>
+          <a href="signup.html">Create Account</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="currentYear"></span> BookNest+. All rights reserved.</p>
+        <a href="#">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="book-modal" id="bookModal">
+    <button class="modal-close" id="modalClose" aria-label="Close details">×</button>
+    <span class="section-kicker">BOOK DETAILS</span>
+    <h2 id="modalTitle">Book Title</h2>
+    <p class="modal-author" id="modalAuthor"></p>
+    <p id="modalDescription"></p>
+    <p class="modal-note">This is a book preview. Full reading functionality can be added later.</p>
+    <button class="btn btn-primary" id="modalDone">Done</button>
+  </dialog>
+</body>
+</html>

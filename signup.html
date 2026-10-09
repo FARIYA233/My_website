@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | BookNest+</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .auth-section {
+      min-height: 78vh;
+      display: grid;
+      place-items: center;
+      padding: 50px 16px;
+      background: linear-gradient(135deg, #f8f6ef, #e8f2e9);
+    }
+    .auth-card {
+      width: min(460px, 100%);
+      padding: 36px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .auth-card h1 {
+      margin: 10px 0;
+      color: var(--green-dark);
+      font-size: 34px;
+    }
+    .auth-intro {
+      margin-bottom: 23px;
+      font-size: 14px;
+    }
+    .auth-form {
+      display: grid;
+      gap: 15px;
+    }
+    .auth-form label {
+      display: grid;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .auth-form input {
+      width: 100%;
+      min-height: 45px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+    }
+    .auth-form input:focus {
+      border-color: var(--green);
+    }
+    .auth-form .btn {
+      width: 100%;
+      margin-top: 5px;
+    }
+    .auth-bottom {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 13px;
+    }
+    .auth-bottom a {
+      color: var(--green);
+      font-weight: 700;
+    }
+    .auth-message {
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    @media (max-width: 480px) {
+      .auth-card { padding: 25px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">B+</span>
+        <span>BookNest<span class="logo-plus">+</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#categories" class="nav-link">Categories</a>
+        <a href="books.html" class="nav-link">All Books</a>
+      </div>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="auth-section">
+    <section class="auth-card">
+      <span class="section-kicker">JOIN OUR COMMUNITY</span>
+      <h1>Create Account</h1>
+      <p class="auth-intro">Join BookNest+ and make room for more stories, ideas, and discoveries.</p>
+
+      <form class="auth-form" id="signupForm">
+        <label for="fullName">Full Name
+          <input type="text" id="fullName" name="fullName"
+            placeholder="Enter your full name" required autocomplete="name">
+        </label>
+
+        <label for="email">Email Address
+          <input type="email" id="email" name="email"
+            placeholder="you@example.com" required autocomplete="email">
+        </label>
+
+        <label for="password">Password
+          <input type="password" id="password" name="password"
+            placeholder="At least 6 characters" required minlength="6"
+            autocomplete="new-password">
+        </label>
+
+        <label for="confirmPassword">Confirm Password
+          <input type="password" id="confirmPassword" name="confirmPassword"
+            placeholder="Enter your password again" required minlength="6"
+            autocomplete="new-password">
+        </label>
+
+        <button type="submit" class="btn btn-primary">Create My Account</button>
+      </form>
+
+      <p class="auth-message" id="signupMessage" role="status"></p>
+      <p class="auth-bottom">Already have an account?
+        <a href="login.html">Login here</a>
+      </p>
+      <p class="auth-bottom"><a href="index.html">← Back to Home</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>© <span id="currentYear"></span> BookNest+. All rights reserved.</p>
+      <a href="index.html">Back to Home ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const message = document.getElementById("signupMessage");
+
+      if (password !== confirmPassword) {
+        message.textContent = "Passwords do not match. Please try again.";
+        return;
+      }
+
+      message.textContent =
+        "Demo form only. Account creation requires a backend or authentication service.";
+    });
+  </script>
+</body>
+</html>
