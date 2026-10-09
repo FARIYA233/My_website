@@ -1,141 +1,90 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | BookNest+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .auth-section {
-      min-height: 78vh;
-      display: grid;
-      place-items: center;
-      padding: 55px 16px;
-      background: linear-gradient(135deg, #f8f6ef, #e8f2e9);
-    }
-    .auth-card {
-      width: min(440px, 100%);
-      padding: 36px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-    }
-    .auth-card h1 {
-      margin: 10px 0;
-      color: var(--green-dark);
-      font-size: 34px;
-    }
-    .auth-intro {
-      margin-bottom: 25px;
-      font-size: 14px;
-    }
-    .auth-form {
-      display: grid;
-      gap: 16px;
-    }
-    .auth-form label {
-      display: grid;
-      gap: 7px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .auth-form input {
-      width: 100%;
-      min-height: 46px;
-      padding: 12px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      outline: none;
-    }
-    .auth-form input:focus {
-      border-color: var(--green);
-    }
-    .auth-form .btn {
-      width: 100%;
-      margin-top: 5px;
-    }
-    .auth-bottom {
-      margin-top: 22px;
-      text-align: center;
-      font-size: 13px;
-    }
-    .auth-bottom a {
-      color: var(--green);
-      font-weight: 700;
-    }
-    .auth-message {
-      margin-top: 12px;
-      font-size: 13px;
-    }
-    @media (max-width: 480px) {
-      .auth-card { padding: 25px 20px; }
-    }
+    .auth-main { min-height: 70vh; display: grid; place-items: center; padding: 45px 16px; background: #f8f6ef; }
+    .auth-card { width: 100%; max-width: 440px; background: white; padding: 35px; border: 1px solid #e3e8df; border-radius: 20px; box-shadow: 0 15px 40px #173d2910; }
+    .auth-card h1 { font: 700 2.3rem 'Playfair Display', serif; color: #216b4c; margin: 0 0 10px; }
+    .auth-intro { color: #77847c; margin-bottom: 25px; line-height: 1.6; }
+    .auth-form label { display: block; font-weight: 600; margin: 16px 0 7px; color: #243a31; }
+    .auth-form input { box-sizing: border-box; width: 100%; padding: 13px 14px; border: 1px solid #d8e0d7; border-radius: 10px; font: inherit; }
+    .auth-form input:focus { outline: 2px solid #216b4c; outline-offset: 2px; }
+    .auth-submit { width: 100%; margin-top: 22px; padding: 14px; border: 0; border-radius: 10px; background: #216b4c; color: white; font: 700 1rem 'DM Sans', sans-serif; cursor: pointer; }
+    .auth-submit:hover { background: #154936; }
+    .auth-note { font-size: .9rem; color: #77847c; text-align: center; margin-top: 20px; }
+    .auth-note a { color: #216b4c; font-weight: 700; }
+    .form-message { margin-top: 15px; font-size: .9rem; line-height: 1.5; }
+    @media(max-width: 480px) { .auth-card { padding: 25px 20px; } }
   </style>
 </head>
 <body>
+  <div class="announcement-bar">Your next favourite book is waiting for you.</div>
+
   <header class="site-header">
-    <nav class="navbar container" aria-label="Main navigation">
-      <a href="index.html" class="logo">
-        <span class="logo-icon">B+</span>
-        <span>BookNest<span class="logo-plus">+</span></span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html#home" class="nav-link">Home</a>
-        <a href="index.html#categories" class="nav-link">Categories</a>
-        <a href="books.html" class="nav-link">All Books</a>
-      </div>
-      <div class="nav-actions">
-        <a href="signup.html" class="btn btn-primary">Join Us</a>
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="logo" href="index.html">BookNest<span>+</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="books.html">Explore Books</a>
+        <a href="login.html" aria-current="page">Login</a>
+        <a href="signup.html" class="nav-cta">Join Us</a>
       </div>
     </nav>
   </header>
 
-  <main class="auth-section">
+  <main class="auth-main">
     <section class="auth-card">
-      <span class="section-kicker">WELCOME BACK</span>
-      <h1>Login to BookNest+</h1>
-      <p class="auth-intro">Continue your reading journey and discover your next favourite book.</p>
+      <h1>Welcome Back</h1>
+      <p class="auth-intro">Sign in to continue your reading journey with BookNest+.</p>
 
       <form class="auth-form" id="loginForm">
-        <label for="email">Email Address
-          <input type="email" id="email" name="email"
-            placeholder="you@example.com" required autocomplete="email">
-        </label>
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
 
-        <label for="password">Password
-          <input type="password" id="password" name="password"
-            placeholder="Enter your password" required
-            autocomplete="current-password" minlength="6">
-        </label>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" minlength="6" required>
 
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button class="auth-submit" type="submit">Login</button>
+        <p class="form-message" id="formMessage" role="status"></p>
       </form>
 
-      <p class="auth-message" id="loginMessage" role="status"></p>
-      <p class="auth-bottom">New to BookNest+?
-        <a href="signup.html">Create an account</a>
-      </p>
-      <p class="auth-bottom"><a href="index.html">← Back to Home</a></p>
+      <p class="auth-note">New to BookNest+? <a href="signup.html">Create an account</a></p>
+      <p class="auth-note"><a href="books.html">Browse books without signing in</a></p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-bottom">
+    <div class="footer-inner">
+      <a class="logo" href="index.html">BookNest<span>+</span></a>
+      <p>A little corner for people who love books.</p>
       <p>© <span id="currentYear"></span> BookNest+. All rights reserved.</p>
-      <a href="index.html">Back to Home ↑</a>
     </div>
   </footer>
 
   <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("active");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
     document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
+    document.getElementById("loginForm").addEventListener("submit", event => {
       event.preventDefault();
-      document.getElementById("loginMessage").textContent =
-        "Demo form only. Real login requires a backend or authentication service.";
+      document.getElementById("formMessage").textContent =
+        "This is a front-end demo. Real login requires a backend or authentication service.";
     });
   </script>
 </body>
 </html>
+```
